@@ -11,6 +11,12 @@ var express = require('express')
 
 var app = express();
 
+// mongoose setup
+var mongoose = require('mongoose')
+var databaseUrl = process.env.DATABASE_URL || 'mongodb://localhost/test';
+mongoose.connect(databaseUrl);
+
+
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
