@@ -17,7 +17,8 @@ var app = express();
 
 // mongoose setup
 var mongoose = require('mongoose')
-var databaseUrl = process.env.DATABASE_URL || 'mongodb://localhost/rateprofessor';
+// var databaseUrl = process.env.DATABASE_URL || 'mongodb://localhost/rateprofessor';
+var databaseUrl = process.env.DATABASE_URL || 'mongodb://114.34.140.123/course'; // limao logic
 mongoose.connect(databaseUrl);
 
 // passport configure
