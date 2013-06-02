@@ -1,0 +1,21 @@
+<% layout('layout') -%>
+
+<h1>歡迎</h1>
+
+<div id="formSignup" class="form-horizontal">
+	<div class="control-group">
+		<label class="control-label" for="inputEmail">學校信箱</label>
+		<div class="controls">
+			<input type="text" id="inputEmail" placeholder="學號">@ntu.edu.tw
+			<span class="help-block hide">信箱錯誤</span>
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+			<button id="btnSignup" type="submit" class="btn">註冊</button>
+		</div>
+	</div>
+</div>
+
+<!-- Application core (Order matters) -->
+<script src="/javascripts/signupApp.js"></script>
