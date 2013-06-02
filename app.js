@@ -35,9 +35,10 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser('DRGRWTHAEGERQYrewtyhhilDS'));
-  app.use(express.session());
+  app.use(express.cookieSession({key:'hellopro',secret:'mmmm1232fdsaf'}));
   app.use(passport.initialize());
   app.use(passport.session());
+  app.use( require('./viewHelper')( app ) );
   app.use(app.router);
   app.use(require('less-middleware')({
     src    : path.join(__dirname, 'assets', 'less'),
@@ -53,14 +54,23 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+
+authController.setup( app );
+
 app.get('/', routes.index);
 
 app.get('/signup', function(req, res){
   res.render('signup', { title: '註冊' });
 });
+app.get('/login', function(req, res){
+  res.render('login', { title: '登入' });
+});
+
 
 // api
 app.post('/api/signup', authController.signup );
+app.post('/api/activate', authController.activate );
+app.get('/api/mail/verify/:cipherText', authController.emailVerify );
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
