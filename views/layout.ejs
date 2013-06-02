@@ -27,7 +27,7 @@
 
 
 
-		<script src="/javascripts/lib/jquery-1.8.2.min.js"></script>
+		<script src="/javascripts/lib/jquery-2.0.2.min.js"></script>
 		<script src="/javascripts/lib/bootstrap.min.js"></script>
 		<script src="/javascripts/lib/json2.js"></script>
 		<script src="/javascripts/lib/underscore-min.js"></script>
@@ -63,21 +63,5 @@
 
 
 
-		<!-- IE warning -->
-		<script class="warningTemplate" type="text/template">
-			<div class="alert alert-block" style="padding-left: 60px;">
-				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<h4>抱歉！</h4>
-				本網站目前不支援您正在使用的瀏覽器，建議您使用<a href="http://www.google.com/chrome"> Chrome </a>或其他瀏覽器。
-			</div>
-		</script>
-		<script type="text/javascript">
-			jQuery(function($) {
-				if( $.browser.msie ){
-					var warning = $('.warningTemplate').html();
-					$('body').prepend( warning )
-				}
-			});
-		</script>
 	</body>
 </html>

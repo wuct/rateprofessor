@@ -3,12 +3,7 @@ var mongoose = require('mongoose')
 
 var UserSchema = new Schema({
 	username : { type : String, default : '有為青年' },
-	email    : {
-		address        : { type : String, required: true },
-		isVerified     : { type : Boolean, default : false },
-		token          : String,
-		lastVerifiedAt : { type : Date, default : new Date( 2013, 3-1, 11) }, // 至少間隔 3 分鐘才重發驗證信
-	}, 
+	email    :  { type : String, required: true },
 	password : String
 });
  

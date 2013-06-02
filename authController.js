@@ -1,5 +1,10 @@
+var	SendGrid = require('sendgrid').SendGrid
+,	sendgrid = new SendGrid( process.env.SENDGRID_USER, process.env.SENDGRID_PASS)
+;
+
 var	passport = require('passport')
 ,	LocalStrategy = require('passport-local').Strategy
+,	crypto   = require('crypto')
 ,	User     = require('./models/userModel')
 ;
 
@@ -71,3 +76,63 @@ exports.passportConfigure = function(){
 
 
 };
+
+
+
+exports.signup = function(req, res, next){
+	console.log( req.body );
+	if ( !req.body.email ) return res.send({ STATUS : 'NO_EMAIL'});
+
+	// create token
+	var shasum = crypto.createHash('sha1');
+	shasum.update( String( Math.random() ) );
+	var token = shasum.digest('hex');
+
+	// console.log('create a token : ', token );
+
+	// save token
+	var user = new User({
+		email : req.body.email,
+		token : token
+	});
+	user.save( function (err){
+		if (err) return next(err);
+		console.log('saved a email verification token : ', token );
+
+		// create url
+		var emailVerificationObj = {
+			email  : user.email,
+			token  : user.token
+		};
+
+		// encode 
+		var cipher = crypto.createCipher('aes-256-cbc', '12dsf243znbr6z3123123dfadfsadw');
+		var encodedText = cipher.update( JSON.stringify( emailVerificationObj ) , 'utf8', 'hex');
+		encodedText += cipher.final('hex');
+
+		console.log('encoded text : ', encodedText);
+
+
+		// var url = 'http://localhost:3000/api/mail/verify/' + encodedText;
+		// for development testing
+		var url = 'http://local.host:3000/api/mail/verify/' + encodedText;
+
+		// send verify mail
+
+		var options = {
+			to      : user.email,
+			from    : 'noreply@carpo.co',
+			subject : '教授您好：請驗證您的電子郵件地址',
+			text    : '您設定了一個新信箱，在驗證此電子郵件地址正確無誤前，Carpo 不會自動寄送任何通知給您。若要驗證電子郵件地址，請按一下此連結或貼在瀏覽器上：\n ' + results.url
+		};
+		sendgrid.send( options, function(success, message) {
+			if (!success) {
+				return callback( message )
+			}
+			console.log('successfully sent a mail to user : ', user._id );
+			callback( null );
+		});
+	});
+};
+
+

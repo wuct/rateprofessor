@@ -1,4 +1,4 @@
-
+//
 /**
  * Module dependencies.
  */
@@ -58,6 +58,9 @@ app.get('/', routes.index);
 app.get('/signup', function(req, res){
   res.render('signup', { title: '註冊' });
 });
+
+// api
+app.post('/api/signup', authController.signup );
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

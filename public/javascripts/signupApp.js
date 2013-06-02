@@ -16,8 +16,6 @@ jQuery(function($) {
 
 	// Cache
 	var $inputEmail = $('#inputEmail')
-	,	$inputPassword = $('#inputPassword')
-	,	$inputPassword2   = $('#inputPassword2')
 	;
 
 	// Signup app view
@@ -32,10 +30,21 @@ jQuery(function($) {
 		},
 		doSignup : function(){
 			this.checkEmail();			
-			this.checkPassword();
 
 			if ( this.hasError() ) return;
 			console.log('pass');
+
+			$.ajax({
+				url: '/api/signup',
+				type: 'POST',
+				data: { 'email': $inputEmail.val() + '@ntu.edu.tw' },
+				success: function( data ){
+					console.log('ajax success');					
+				},
+				error: function(){
+					console.log('ajax error');
+				}
+			});
 			// var	url = '/search-ride/#' + encodeURI( JSON.stringify( obj ) );
 			// window.location.href = url; 
 		},
@@ -48,20 +57,6 @@ jQuery(function($) {
 			if ( $inputEmail.val() === '' ) {
 				$inputEmail.parents(".control-group").addClass('error').removeClass('success');
 				$inputEmail.siblings('span').removeClass('hide');
-			};
-		},
-		checkPassword : function(){
-			if ( $inputPassword.val() === '' ) {
-				$inputPassword.parents(".control-group").addClass('error').removeClass('success');
-				$inputPassword.siblings('span').removeClass('hide');
-			};
-			if ( $inputPassword2.val() === '' ) {
-				$inputPassword2.parents(".control-group").addClass('error').removeClass('success');
-				$inputPassword2.siblings('span').removeClass('hide');
-			};
-			if ( $inputPassword.val() !== $inputPassword2.val() ) {
-				$inputPassword2.parents(".control-group").addClass('error').removeClass('success');
-				$inputPassword2.siblings('span').removeClass('hide');
 			};
 		},
 		hasError : function(){
