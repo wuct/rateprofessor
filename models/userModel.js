@@ -2,9 +2,12 @@ var mongoose = require('mongoose')
 ,	Schema   = mongoose.Schema;
 
 var UserSchema = new Schema({
-	username : { type : String, default : '有為青年' },
+	username : { type : String, default : '匿名學生' },
 	email    :  { type : String, required: true },
-	password : String
+	token    :  { type : String, required: true },
+	password : String,
+
+	isVerified : { type : Boolean, default : false },
 });
  
 var User = mongoose.model('User', UserSchema);

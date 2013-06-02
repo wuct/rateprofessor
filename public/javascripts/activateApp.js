@@ -15,13 +15,12 @@ jQuery(function($) {
 	'use strict';
 
 	// Cache
-	var $inputEmail = $('#inputEmail')
-	,	$inputPassword = $('#inputPassword')
+	var	$inputPassword = $('#inputPassword')
 	,	$inputPassword2   = $('#inputPassword2')
 	;
 
 	// Signup app view
-	var SignupAppView = Backbone.View.extend({
+	var ActivationAppView = Backbone.View.extend({
 		el : "body",
 		events : {
 			"click #btnSignup" : "doSignup",
@@ -31,37 +30,30 @@ jQuery(function($) {
 			console.log('hi view2');
 		},
 		doSignup : function(){
-			this.checkEmail();			
 			this.checkPassword();
 
 			if ( this.hasError() ) return;
 			console.log('pass');
 
 			$.ajax({
-				url: '/api/signup',
+				url: '/api/activate',
 				type: 'POST',
-				data: { 'email': $inputEmail.val() + '@ntu.edu.tw',
+				data: { 'email': getEmail(),
 						'password': $inputPassword.val() },
 				success: function( data ){
-					console.log('ajax success');					
+					console.log('ajax success');	
+					window.location.href = '/login'; 
+									
 				},
 				error: function(){
 					console.log('ajax error');
 				}
 			});
-			// var	url = '/search-ride/#' + encodeURI( JSON.stringify( obj ) );
-			// window.location.href = url; 
 		},
 		clearViewEffect : function( e ){
 			var $target = $(e.target);
 			$target.parents(".control-group").removeClass('success').removeClass('error');
 			$target.siblings('span').addClass('hide');
-		},
-		checkEmail : function(){
-			if ( $inputEmail.val() === '' ) {
-				$inputEmail.parents(".control-group").addClass('error').removeClass('success');
-				$inputEmail.siblings('span').removeClass('hide');
-			};
 		},
 		checkPassword : function(){
 			if ( $inputPassword.val() === '' ) {
@@ -74,7 +66,7 @@ jQuery(function($) {
 			};
 			if ( $inputPassword.val() !== $inputPassword2.val() ) {
 				$inputPassword2.parents(".control-group").addClass('error').removeClass('success');
-				$inputPassword2.siblings('span').removeClass('hide');
+				$inputPassword2.siblings('span.equal-error').removeClass('hide');
 			};
 		},
 		hasError : function(){
@@ -85,6 +77,6 @@ jQuery(function($) {
 		},
 
 	});
-	var signupAppView = new SignupAppView();
+	var activationAppView = new ActivationAppView();
 
 });
