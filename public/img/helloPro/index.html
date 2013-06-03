@@ -1,13 +1,154 @@
-<% layout('layout') -%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+.college  #c1 {
+	position: absolute;
+	left: 70px;
+	top: 170px;
+	height: 131px;
+}
+.college  #c2 {
+	position: absolute;
+	left: 250px;
+	top: 30px;
+}
+.college  #c3 {
+	position: absolute;
+	left: 500px;
+	top: 20px;
+}
+.college  #c4 {
+	position: absolute;
+	left: 700px;
+	top: 40px;
+}
+.college  #c5 {
+	position: absolute;
+	left: 950px;
+	top: 170px;
+}
+.college {
+	background-color: #FFC;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height:800px;
+	width: 1280px;
+}
+.college #main h1 {
+	position: absolute;
+	top: 200px;
+	font-size: 36px;
+}
+.college  #c6 {
+	position: absolute;
+	left: 70px;
+	top: 350px;
+}
+.college  #c10 {
+	position: absolute;
+	left: 250px;
+	top: 500px;
+}
+.college  #c8 {
+	position: absolute;
+	left: 450px;
+	top: 500px;
+}
+.college  #c9 {
+	position: absolute;
+	left: 650px;
+	top: 500px;
+}
+.college #a1 {
+	position: absolute;
+	left: 850px;
+	top: 500px;
+}
+.college  #c7 {
+	position: absolute;
+	left: 950px;
+	top: 350px;
+}
 
+.college  #court {
+	position: absolute;
+	left: 300px;
+	top: 140px;
+}
+
+.college  li {
+	float: left;
+	list-style-type: none;
+	position: relative;
+	text-align: center;
+}
+
+body logo a img {
+	position: absolute;
+	left: 1000px;
+	top: 10px;
+}
+
+.college ul.sub-menu {
+	display: none;
+	position: absolute;
+	top: 90px;
+	left: -2px;
+	padding: 10px;
+	z-index: 90;
+	float: none;
+	list-style-type: none;
+	width: 139px;
+	height: 183px;
+    }
+#form1 {
+	position: absolute;
+	left: 45px;
+	top: 15px;
+}
+
+#form2{
+	position: absolute;
+	left: 45px;
+	top: 45px;
+}
+#body {
+	font-family: "微軟正黑體";
+}
+#college #main .sub-menu li  {
+	float: none;
+	width: 150px;
+	list-style-type: none;
+	background-color: #FF3;
+	font-weight: normal;
+	text-align: center;
+}
+#search {
+	position: absolute;
+	left: 15px;
+	top: 15px;
+	float: left;
+}
+</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/hover.js"></script>
+
+
+</head>
+
+<body>
 
 
 
 <div class="college"  id="college">
 
 
-<!-- <div class="search">
-	<form id="form1" name="form1" method="post" action="">
+<div class="search"><form id="form1" name="form1" method="post" action="">
   <label for="find"></label>
   <input type="text" name="find" id="find" />
   <input type="submit" name="button" id="button" value="教授" />
@@ -16,13 +157,13 @@
   <label for="find"></label>
   <input type="text" name="find" id="find" />
   <input type="submit" name="button" id="button" value="課程" />
-</form> -->
+</form>
 
-<!-- <img src="/img/clearness.png" width="36" height="43" /></div> -->
+<img src="image/clearness.png" width="36" height="43" /></div>
 
 <ul id="main" >
         <li id="c1">
-        <a href="#"><img src="/img/1_literature.png" width="163" height="71" alt="文學院" /></a>
+        <a href="#"><img src="college/1_literature.png" width="163" height="71" alt="文學院" /></a>
             <ul class="sub-menu">
             	<li><a href="#">中國文學系</a></li>
             	<li><a href="#">外國語文學系</a></li>
@@ -35,7 +176,7 @@
        	  </ul>
       </li>
         <li id="c2">
-        <a href="#"><img src="/img/2_management.png" width="163" height="91" alt="管理學院"/></a>
+        <a href="#"><img src="college/2_management.png" width="163" height="91" alt="管理學院"/></a>
 <ul class="sub-menu">
             	<li><a href="#">工商管理學系</a></li>
            	  <li><a href="#">會計學系</a></li>
@@ -45,7 +186,7 @@
        	  </ul>
         </li>
         <li id="c3">
-        <a href="#"><img src="/img/3_science.png" width="116" height="100" alt="理學院" /></a>
+        <a href="#"><img src="college/3_science.png" width="116" height="100" alt="理學院" /></a>
         	<ul class="sub-menu">
             	<li><a href="#">數學系</a></li>
             	<li><a href="#">物理學系</a></li>
@@ -59,7 +200,7 @@
           	</ul>
         </li>
         <li id="c4">
-        <a href="#"><img src="/img/4_engineering.png" width="163" height="78" alt="工學院" /></a>
+        <a href="#"><img src="college/4_engineering.png" width="163" height="78" alt="工學院" /></a>
         	<ul class="sub-menu">
 				<li><a href="#">土木工程學系</a></li>
             	<li><a href="#">機械工程學系</a></li>
@@ -69,7 +210,7 @@
           	</ul>
         </li>
         <li id="c5">
-        <a href="#"><img src="/img/5_social.png" width="163" height="95" alt="社科院" /></a>
+        <a href="#"><img src="college/5_social.png" width="163" height="95" alt="社科院" /></a>
         	<ul class="sub-menu">
             	<li><a href="#">政治系</a></li>
             	<li><a href="#">經濟學系</a></li>
@@ -78,7 +219,7 @@
           	</ul>
         </li>
         <li id="c6">
-        <a href="#"><img src="/img/6_agri.png" width="163" height="87" alt="生農學院" /></a>
+        <a href="#"><img src="college/6_agri.png" width="163" height="87" alt="生農學院" /></a>
         	<ul class="sub-menu">
             	<li><a href="#">農藝學系</a></li>
             	<li><a href="#">生物環境系統工程學系</a></li>
@@ -96,7 +237,7 @@
           	</ul>
         </li>
         <li id="c7">
-        <a href="#"><img src="/img/7_med.png" width="163" height="98" alt="醫學院" /></a>
+        <a href="#"><img src="college/7_med.png" width="163" height="98" alt="醫學院" /></a>
         	<ul class="sub-menu"> 
             	<li><a href="#">醫學系</a></li>
             	<li><a href="#">牙醫學系</a></li>
@@ -108,45 +249,41 @@
           	</ul>
         </li>
         <li id="c8">
-        <a href="#"><img src="/img/8_bio.png" width="163" height="86" alt="生科學院" /></a>
+        <a href="#"><img src="college/8_bio.png" width="163" height="86" alt="生科學院" /></a>
         	<ul class="sub-menu">
                 <li><a href="#">生命科學系</a></li>
                 <li><a href="#">生化科技學系</a></li>
           	</ul>
         </li>
         <li id="c9">
-        <a href="#"><img src="/img/9_EECS.png" width="163" height="91" alt="電資學院" /></a>
+        <a href="#"><img src="college/9_EECS.png" width="163" height="91" alt="電資學院" /></a>
         	<ul class="sub-menu">
             	<li><a href="#">電機工程學系</a></li>
             	<li><a href="#">資訊工程學系</a></li>
           	</ul>
         </li>
         <li id="c10">
-        <a href="#"><img src="/img/10_law.png" width="163" height="86" alt="法學院" /></a>
+        <a href="#"><img src="college/10_law.png" width="163" height="86" alt="法學院" /></a>
         	<ul class="sub-menu">
             	<li><a href="#">法律學系</a></li>
           	</ul>
         </li>
       <li id="a1">
-        <a href="#"><img src="/img/11_public.png" width="163" height="90" alt="公衛學院" /></a>
+        <a href="#"><img src="college/11_public.png" width="163" height="90" alt="公衛學院" /></a>
    	  <ul class="sub-menu">
                 <li><a href="#">公共衛生學系</a></li>
        	</ul>
       </li>
         <li id="court">
-      <img src="/img/fieldWithPro.png" width="600" height="340" /> </li>
+      <img src="image/fieldWithPro.png" width="600" height="340" /> </li>
   </ul>
 </div>
 <logo>
-	<a href="index.html"><img src="/img/title.png" width="200" height="94" /></a>
+	<a href="index.html"><img src="image/title.png" width="200" height="94" /></a>
 </logo>
 
 
 
 
-<!-- Application core (Order matters) -->
-<script src="/javascripts/searchApp.js"></script>
-
-
- <!-- Modules (Order does not matter) -->
-<script src="/javascripts/modules/course-module.js"></script>
+</body>
+</html>

@@ -142,9 +142,9 @@ exports.signup = function(req, res, next){
 
 			var options = {
 				to      : user.email,
-				from    : 'noreply@carpo.co',
+				from    : 'noreply@hellopro.com.tw',
 				subject : '[教授您好] 請驗證您的電子郵件地址',
-				text    : '您設定了一個新信箱，在驗證此電子郵件地址正確無誤前，Carpo 不會自動寄送任何通知給您。若要驗證電子郵件地址，請按一下此連結或貼在瀏覽器上：\n ' + url
+				text    : '您設定了一個新信箱，在驗證此電子郵件地址正確無誤前，教授您好不會自動寄送任何通知給您。若要驗證電子郵件地址，請按一下此連結或貼在瀏覽器上：\n ' + url
 			};
 			sendgrid.send( options, function(success, message) {
 				if (!success) {

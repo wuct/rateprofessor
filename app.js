@@ -12,6 +12,8 @@ var express          = require('express')
 var authController = require('./authController')
   , routes = require('./routes')
   , user = require('./routes/user')
+  , course = require('./routes/course')
+  , rate = require('./routes/rate')
 ;
 var app = express();
 
@@ -63,16 +65,46 @@ app.get('/', routes.index);
 app.get('/signup', function(req, res){
   res.render('signup', { title: '註冊' });
 });
+app.get('/search', function(req, res){
+  res.render('search', { title: '搜尋' });
+});
+
 app.get('/login', function(req, res){
   res.render('login', { title: '登入' });
 });
+app.get('/course/:_id', course.detailPage);
 
 
 // api
 app.post('/api/signup', authController.signup );
 app.post('/api/activate', authController.activate );
 app.get('/api/mail/verify/:cipherText', authController.emailVerify );
+app.post('/api/search', course.search );
+app.post('/api/rate', rate.add );
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+
+
+
+// test
+// var Course = require('./models/courseModel');
+// Course
+// .find({lecturer : '蕭寧馨'})
+// .exec(function (err, courses){
+//   console.log( courses)
+// });
+
+
+// var User = require('./models/userModel');
+// User
+// .find()
+// .exec(function (err, users){
+//   console.log( users)
+// });
+
+
+
+

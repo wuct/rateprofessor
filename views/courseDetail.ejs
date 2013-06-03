@@ -1,0 +1,158 @@
+<% layout('layout') -%>
+
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<h1>
+				<%= title %>
+			</h1>
+		</div>
+		<div class="ratingForm form-horizontal">
+			<div class="control-group">
+				<label class="control-label" for="inputClearity">講課清楚</label>
+				<div class="controls">
+					<input type="text" id="inputClearity" placeholder="1~5">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputEasy">課程難易程度</label>
+				<div class="controls">
+					<input type="text" id="inputEasy" placeholder="1~5">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputHelpness">教授助益</label>
+				<div class="controls">
+					<input type="text" id="inputHelpness" placeholder="1~5">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputSweetness">分數甜度</label>
+				<div class="controls">
+					<input type="text" id="inputSweetness" placeholder="1~5">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputSweetness">評語</label>
+				<div class="controls">
+					<textarea rows="4" placeholder="寫愈多愈好" id="inputComment"></textarea>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<button id="btnDoRate" class="btn">送出評價</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="sapn3">
+			<h3>講課清楚</h3>
+			<% if(avgClearity) { %>
+				<%= avgClearity %>
+			<% } else { %>
+				尚無評價
+			<% } %>
+		</div>
+		<div class="sapn3">
+			<h3>課程難易程度</h3>
+			<% if(avgEasy) { %>
+				<%= avgEasy %>
+			<% } else { %>
+				尚無評價
+			<% } %>
+		</div>
+		<div class="sapn3">
+			<h3>教授助益</h3>
+			<% if(avgHelpness) { %>
+				<%= avgHelpness %>
+			<% } else { %>
+				尚無評價
+			<% } %>
+		</div>
+		<div class="sapn3">
+			<h3>分數甜度</h3>
+			<% if(avgSwetness) { %>
+				<%= avgSwetness %>
+			<% } else { %>
+				尚無評價
+			<% } %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="span12">
+			<div class="ratesWrap">
+				<ul class="ratesContainer">
+					<% course.rates.forEach( function(rate){ %>
+						<li class='clearfix'>
+							<div class="clearity">
+								講課清楚
+								<%= rate.clearity %>
+							</div>
+							<div class="easy">
+								課程難易程度
+								<%= rate.easy %>
+							</div>
+							<div class="helpness">
+								教授助益
+								<%= rate.helpness %>
+							</div>
+							<div class="sweetness">
+								分數甜度
+								<%= rate.sweetness %>
+							</div>
+							<div class="comment">
+								評語
+								<%= rate.comment %>
+							</div>
+					</li>
+					<% }) %>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+</div>
+<script type="text/template" id="rate-row-template">
+	<li class='clearfix'>
+			<div class="clearity">
+				講課清楚
+				<?= rate.clearity ?>
+			</div>
+			<div class="easy">
+				課程難易程度
+				<?= rate.easy ?>
+			</div>
+			<div class="helpness">
+				教授助益
+				<?= rate.helpness ?>
+			</div>
+			<div class="sweetness">
+				分數甜度
+				<?= rate.sweetness ?>
+			</div>
+			<div class="comment">
+				評語
+				<?= rate.comment ?>
+			</div>
+	</li>
+</script>
+
+<script type="text/javascript">
+var getCourseId = function(){
+	return '<%= course._id %>';
+};
+</script>
+
+
+<!-- Application core (Order matters) -->
+<script src="/javascripts/ratingApp.js"></script>
+
+
+ <!-- Modules (Order does not matter) -->
+<script src="/javascripts/modules/rate-module.js"></script>
+
+

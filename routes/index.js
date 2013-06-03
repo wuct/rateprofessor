@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: '給我好教授' });
+  res.render('index', { title: '教授您好' });
 };

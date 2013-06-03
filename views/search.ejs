@@ -1,0 +1,47 @@
+<% layout('layout') -%>
+
+<div class="container">
+	<h1>給我好教授，其餘免談</h1>
+	<div class="form-search">
+		<input id="txtSearchInput" type="text" class="input-medium search-query" placeholder="請輸入課名">
+		<button id="btnSearch" class="btn">搜尋課程</button>
+	</div>
+	<div class="resultsWrap">
+		<div class="searchingView hide">
+			搜尋中... <i class="icon-spinner icon-spin"></i>
+		</div>
+		<div class="nonResultView hide">
+			找不到課程，請試試其他課名。
+		</div>
+		<!-- ul.resultContainer -->
+		<ul class="resultContainer"></ul>
+	</div>
+</div>
+
+<script type="text/template" id="course-row-template">
+	<li class='clearfix'>
+		<a href="/course/<?= _id ?>">
+			<div class="lecturer">
+				<?= lecturer ?>
+			</div>
+			<div class="semester">
+				<?= semester ?>
+			</div>
+			<div class="title">
+				<?= title ?>
+			</div>
+		</a>
+	</li>
+</script>
+
+
+
+
+
+
+<!-- Application core (Order matters) -->
+<script src="/javascripts/searchApp.js"></script>
+
+
+ <!-- Modules (Order does not matter) -->
+<script src="/javascripts/modules/course-module.js"></script>

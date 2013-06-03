@@ -1,3 +1,248 @@
 /*import twitter-bootstrap*/
 @import 'bootstrap';
 @import 'responsive';
+
+// color
+@dateGray: #878787;
+@gray: #878787;
+@backgroundGray: #efefef;
+@borderGray: #e3e3e3;
+@black: rgb(51, 51, 51);
+@blue: rgb(0, 136, 204);
+
+// mixin
+.cp-rounded(@radius: 4px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+.cp-opacity(@opacity: 50) {
+  -moz-opacity: @opacity /100;
+  -khtml-opacity: @opacity /100;
+  -webkit-opacity: @opacity /100;
+  opacity: @opacity /100;
+  @opperc: @opacity;
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
+  filter: ~"alpha(opacity=@{opperc})";
+}
+.cp-box-sizing(@sizing: border-box) {
+  -ms-box-sizing: @sizing;
+  -moz-box-sizing: @sizing;
+  -webkit-box-sizing: @sizing;
+  box-sizing: @sizing;
+}
+.cp-inner-shadow(@horizontal:0, @vertical:1px, @blur:2px, @spread:1px, @alpha: 0.4) {
+  -webkit-box-shadow: inset @horizontal @vertical @blur @spread rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: inset @horizontal @vertical @blur @spread rgba(0, 0, 0, @alpha);
+  box-shadow: inset @horizontal @vertical @blur @spread rgba(0, 0, 0, @alpha);
+}
+
+.cp-box-shadow(@horizontal:0, @vertical:0, @blur:0, @spread:0, @alpha: 0.4) {
+  -webkit-box-shadow: @horizontal @vertical @blur @spread rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @horizontal @vertical @blur @spread rgba(0, 0, 0, @alpha);
+  box-shadow: @horizontal @vertical @blur @spread rgba(0, 0, 0, @alpha);
+}
+
+.cp-box-shadow-neon( @rgba:rgba(255, 0, 0, 0.4) ) {
+  -webkit-box-shadow: 0 0 10px 2px @rgba;
+  -moz-box-shadow: 0 0 10px 2px @rgba;
+  box-shadow: 0 0 10px 2px  @rgba;
+}
+
+.cp-text-overflow(@textOverFlow:'ellipsis'){
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+div.navbar {
+  .cp-opacity(80);
+}
+div.navbar:hover {
+  .cp-opacity(100);
+}
+
+ul.resultContainer{
+	margin: 0;
+	list-style: none;
+	> li {
+		.cp-opacity(70);
+		border-bottom: 1px solid #e3e3e3;
+		padding: 6px 0;
+		&:hover {
+			.cp-opacity(100);
+		}
+		&:last-child {
+			border-bottom: 0;
+		};
+		> a {
+			color: @black;
+			text-decoration: none;
+		}
+	}
+}
+
+.ratesWrap{
+  margin: 60px;
+  ul {
+    list-style: none;
+  }
+  li {
+    margin: 10px 0;
+    &:nth-child(2n+1){
+      background-color: @backgroundGray;
+    };
+  }
+}
+
+
+
+// *****************************************************
+
+.college  #c1 {
+  position: absolute;
+  left: 70px;
+  top: 41+ 170px;
+  height: 131px;
+}
+.college  #c2 {
+  position: absolute;
+  left: 250px;
+  top: 41+ 30px;
+}
+.college  #c3 {
+  position: absolute;
+  left: 500px;
+  top: 41+ 20px;
+}
+.college  #c4 {
+  position: absolute;
+  left: 700px;
+  top: 41+ 40px;
+}
+.college  #c5 {
+  position: absolute;
+  left: 950px;
+  top: 41+ 170px;
+}
+.college {
+  background-color: #FFC;
+  position: absolute;
+  left: 0px;
+  top: 41+ 0px;
+  height:800px;
+  width: 100%;
+}
+.college #main h1 {
+  position: absolute;
+  top: 41+ 200px;
+  font-size: 36px;
+}
+.college  #c6 {
+  position: absolute;
+  left: 70px;
+  top: 41+ 350px;
+}
+.college  #c10 {
+  position: absolute;
+  left: 250px;
+  top: 41+ 500px;
+}
+.college  #c8 {
+  position: absolute;
+  left: 450px;
+  top: 41+ 500px;
+}
+.college  #c9 {
+  position: absolute;
+  left: 650px;
+  top: 41+ 500px;
+}
+.college #a1 {
+  position: absolute;
+  left: 850px;
+  top: 41+ 500px;
+}
+.college  #c7 {
+  position: absolute;
+  left: 950px;
+  top: 41+ 350px;
+}
+
+.college  #court {
+  position: absolute;
+  left: 300px;
+  top: 41+ 140px;
+}
+
+.college  li {
+  float: left;
+  list-style-type: none;
+  position: relative;
+  text-align: center;
+}
+
+body logo a img {
+  position: absolute;
+  left: 1000px;
+  top: 41+ 10px;
+}
+
+.college ul.sub-menu {
+  display: none;
+  position: absolute;
+  top: 41+ 90px;
+  left: -2px;
+  padding: 10px;
+  z-index: 90;
+  float: none;
+  list-style-type: none;
+  width: 139px;
+  height: 183px;
+    }
+#form1 {
+  position: absolute;
+  left: 45px;
+  top: 41+ 15px;
+}
+
+#form2{
+  position: absolute;
+  left: 45px;
+  top: 41+ 45px;
+}
+#body {
+  font-family: "微軟正黑體";
+}
+#college #main .sub-menu li  {
+  float: none;
+  width: 150px;
+  list-style-type: none;
+  background-color: #FF3;
+  font-weight: normal;
+  text-align: center;
+}
+#search {
+  position: absolute;
+  left: 15px;
+  top: 41+ 15px;
+  float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
